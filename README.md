@@ -35,11 +35,10 @@ flowchart LR
 
 ## Dados utilizados
 
-Este projeto utiliza uma **praça-modelo** com **dados estimados**, adotados como premissas
-justificadas, conforme permite o item 4.2 do enunciado. Todas as premissas, com a justificativa
-de cada uma, estão na aba **Premissas** da planilha [Planilha energia - SERS.xlsx](Planilha%20energia%20-%20SERS.xlsx).
+Usamos uma **praça-modelo** com **dados estimados**
+**Premissas** da planilha [Planilha energia - SERS.xlsx](Planilha%20energia%20-%20SERS.xlsx).
 
-Os resultados são **projeções condicionadas a essas premissas**, e não valores medidos ou garantidos.
+Os resultados são **projeções modelos**, e não valores medidos ou garantidos.
 
 ## Como usar
 
