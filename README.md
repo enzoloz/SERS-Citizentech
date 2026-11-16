@@ -51,7 +51,7 @@ Os cálculos da contribuição de SERS estão na planilha
 | **Cálculos** | Passo a passo com a fórmula E = P × t / 1000, comparação das alternativas e dimensionamento solar |
 | **Indicadores** | Indicadores do dashboard e gráfico comparativo entre os cenários |
 
-O arquivo [`calculo_indicadores.py`](calculo_indicadores.py) mostra os cálculos e precisa de Python 3 instalado:
+O arquivo [`calculo_indicadores.py`](calculo_indicadores.py) mostra os cálculos e precisa de Python 3 instalado para a execução:
 
 ```bash
 python calculo_indicadores.py
