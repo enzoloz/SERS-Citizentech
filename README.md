@@ -47,7 +47,7 @@ O script imprime os resultados e gera `indicadores.json` (usado pelo dashboard) 
 
 ## Referências
 
-- BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. Disponível em: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
+- BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
 - EIXOS. Brasil tem menor taxa de emissão de carbono na geração elétrica em onze anos. https://eixos.com.br/brasil-tem-menor-taxa-de-emissao-de-carbono-na-geracao-eletrica-em-onze-anos/. 
 - AGÊNCIA INFRA. ANEEL aprova reajuste de 10,18% nas tarifas da Enel SP. 30 jun. https://agenciainfra.com/blog/?p=43652. 
 
