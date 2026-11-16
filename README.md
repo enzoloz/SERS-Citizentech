@@ -57,7 +57,7 @@ e é um componente opcional. Para executá-lo, é necessário ter o Python 3 ins
 
 ```bash
 python calculo_indicadores.py
-```****
+```
 ## Referências
 
 - BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
