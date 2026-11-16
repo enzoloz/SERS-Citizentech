@@ -44,7 +44,7 @@ Os resultados são **projeções condicionadas a essas premissas**, e não valor
 ## Como usar
 
 Os cálculos da contribuição de SERS estão na planilha
-[`planilha_energia_praca.xlsx`](planilha_energia_praca.xlsx), organizada em três abas:
+[`planilha_energia_praca.xlsx`](), organizada em três abas:
 
 | Aba | Conteúdo |
 |---|---|
