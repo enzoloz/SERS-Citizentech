@@ -51,8 +51,7 @@ Os cálculos da contribuição de SERS estão na planilha
 | **Cálculos** | Passo a passo com a fórmula E = P × t / 1000, comparação das alternativas e dimensionamento solar |
 | **Indicadores** | Indicadores do dashboard e gráfico comparativo entre os cenários |
 
-O arquivo [`calculo_indicadores.py`](calculo_indicadores.py) reproduz os mesmos cálculos em Python
-e é um componente opcional. Para executá-lo, é necessário ter o Python 3 instalado:
+O arquivo [`calculo_indicadores.py`](calculo_indicadores.py) mostra os cálculos e precisa de Python 3 instalado:
 
 ```bash
 python calculo_indicadores.py
@@ -63,9 +62,9 @@ python calculo_indicadores.py
 - EIXOS. Brasil tem menor taxa de emissão de carbono na geração elétrica em onze anos. https://eixos.com.br/brasil-tem-menor-taxa-de-emissao-de-carbono-na-geracao-eletrica-em-onze-anos/. 
 - AGÊNCIA INFRA. ANEEL aprova reajuste de 10,18% nas tarifas da Enel SP. 30 jun. https://agenciainfra.com/blog/?p=43652. 
 
-## Limitações
+## Observações
 
-- Os resultados são projeções condicionadas às premissas adotadas, e não resultados garantidos.
+- Os resultados são projeções modelo, e não resultados garantidos.
 - Número de luminárias, potências, tarifa, custos e horas de sol pleno são estimativas.
 - Na alternativa B, o balanço de 100% de energia renovável depende da compensação de créditos na rede, porque a geração é diurna e a iluminação é noturna. Baterias não foram consideradas.
 - Não foram considerados taxas e encargos da compensação, manutenção nem as emissões do ciclo de vida dos painéis.
