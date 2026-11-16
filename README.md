@@ -33,18 +33,31 @@ flowchart LR
     PROC --> DASH[Neighborhood Action Dashboard]
 ```
 
-## Como rodar
+## Dados utilizados
 
-Requisitos: Python 3. A biblioteca matplotlib é opcional e só serve para gerar o gráfico.
+Este projeto utiliza uma **praça-modelo** com **dados estimados**, adotados como premissas
+justificadas, conforme permite o item 4.2 do enunciado. Todas as premissas, com a justificativa
+de cada uma, estão na aba **Premissas** da planilha [`planilha_energia_praca.xlsx`](planilha_energia_praca.xlsx).
+
+Os resultados são **projeções condicionadas a essas premissas**, e não valores medidos ou garantidos.
+
+## Como usar
+
+Os cálculos da contribuição de SERS estão na planilha
+[`planilha_energia_praca.xlsx`](planilha_energia_praca.xlsx), organizada em três abas:
+
+| Aba | Conteúdo |
+|---|---|
+| **Premissas** | Dados de entrada (luminárias, potências, tarifa, custos) |
+| **Cálculos** | Passo a passo com a fórmula E = P × t / 1000, comparação das alternativas e dimensionamento solar |
+| **Indicadores** | Indicadores do dashboard e gráfico comparativo entre os cenários |
+
+O arquivo [`calculo_indicadores.py`](calculo_indicadores.py) reproduz os mesmos cálculos em Python
+e é um componente opcional. Para executá-lo, é necessário ter o Python 3 instalado:
 
 ```bash
-pip install matplotlib
-cd sers
 python calculo_indicadores.py
-```
-
-O script imprime os resultados e gera `indicadores.json` (usado pelo dashboard) e `grafico_consumo.png`.
-
+```****
 ## Referências
 
 - BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
