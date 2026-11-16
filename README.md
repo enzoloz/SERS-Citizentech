@@ -48,7 +48,7 @@ O script imprime os resultados e gera `indicadores.json` (usado pelo dashboard) 
 ## Referências
 
 - BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. Disponível em: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
-- O POVO. Geração de energia no Brasil atinge menor emissão de CO2 em 11 anos. 15 fev. 2024. Disponível em: https://mais.opovo.com.br/jornal/economia/2024/02/15/geracao-de-energia-no-brasil-atinge-menor-emissao-de-co2-em-11-anos.html. Acesso em: 16 nov. 2026.
+- EIXOS. Brasil tem menor taxa de emissão de carbono na geração elétrica em onze anos. https://eixos.com.br/brasil-tem-menor-taxa-de-emissao-de-carbono-na-geracao-eletrica-em-onze-anos/. 
 - AGÊNCIA INFRA. ANEEL aprova reajuste de 10,18% nas tarifas da Enel SP. 30 jun. https://agenciainfra.com/blog/?p=43652. 
 
 ## Limitações
