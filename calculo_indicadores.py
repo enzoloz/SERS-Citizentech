@@ -5,30 +5,28 @@ Contribuição de SERS: análise energética da iluminação de uma praça (bair
 Fórmula base (enunciado, item 4.2):  E (kWh) = P (W) x t (h) / 1000
 
 ATENÇÃO: todos os valores em PREMISSAS são estimativas/hipóteses.
-Substitua pelos dados reais (contagem de postes, tarifa da conta de luz, orçamentos)
-e registre a fonte de cada um no README.
 """
 import json
 import math
 
 # ----------------------------- PREMISSAS -----------------------------
 P = {
-    "n_luminarias": 20,            # nº de postes da praça (HIPÓTESE - contar na praça)
-    "pot_convencional_w": 150,     # lâmpada convencional (HIPÓTESE)
-    "pot_led_w": 50,               # luminária LED equivalente (HIPÓTESE)
+    "n_luminarias": 20,            # nº de postes da praça 
+    "pot_convencional_w": 150,     # lâmpada convencional 
+    "pot_led_w": 50,               # luminária LED equivalente 
     "fator_dimerizacao": 0.5,      # potência a 50% no horário de baixo movimento
     "horas_noite_h": 12,           # horas ligadas por noite
     "horas_dimerizadas_h": 6,      # horas/noite com dimerização (alternativa B)
     "dias_mes": 30,                # meses de 30 dias nos valores mensais
     "dias_ano": 365,               # valores anuais usam 365 dias
-    "tarifa_rs_kwh": 0.90,         # R$/kWh (HIPÓTESE - confirmar na conta/ANEEL)
+    "tarifa_rs_kwh": 0.90,         # R$/kWh 
     "fator_emissao_kg_kwh": 0.0385,  # kg CO2/kWh (média SIN 2023, MCTI)
-    "hsp_kwh_m2_dia": 4.5,         # horas de sol pleno (HIPÓTESE - confirmar CRESESB/SunData)
-    "pr": 0.80,                    # performance ratio do sistema FV (HIPÓTESE)
+    "hsp_kwh_m2_dia": 4.5,         # horas de sol pleno 
+    "pr": 0.80,                    # performance ratio do sistema FV 
     "pot_painel_wp": 550,          # potência de cada painel
-    "custo_luminaria_led_rs": 600,   # R$ por luminária instalada (HIPÓTESE - cotar)
-    "custo_controle_total_rs": 4500,  # sensores + controle + gateway (HIPÓTESE - cotar)
-    "custo_fv_rs_wp": 4.00,        # R$/Wp instalado (HIPÓTESE - cotar)
+    "custo_luminaria_led_rs": 600,   # R$ por luminária instalada 
+    "custo_controle_total_rs": 4500,  # sensores + controle + gateway 
+    "custo_fv_rs_wp": 4.00,        # R$/Wp instalado 
 }
 
 
@@ -40,7 +38,7 @@ def energia_kwh(potencia_w, horas, qtd):
 def cenario(nome, kwh_dia, investimento, geracao_fv_mes=0.0):
     kwh_mes = kwh_dia * P["dias_mes"]
     kwh_ano = kwh_dia * P["dias_ano"]
-    rede_mes = max(0.0, kwh_mes - geracao_fv_mes)         # energia comprada da rede
+    rede_mes = max(0.0, kwh_mes - geracao_fv_mes)         
     renovavel_pct = 0.0 if kwh_mes == 0 else min(100.0, geracao_fv_mes / kwh_mes * 100)
     return {
         "cenario": nome,
@@ -87,7 +85,7 @@ def main():
         c["economia_kwh_mes"] = round(base["consumo_kwh_mes"] - c["energia_da_rede_kwh_mes"], 1)
         c["economia_pct"] = round(c["economia_kwh_mes"] / base["consumo_kwh_mes"] * 100, 1)
         c["economia_rs_mes"] = round(base["custo_rs_mes"] - c["custo_rs_mes"], 2)
-        # emissões evitadas: energia da rede deixou de ser consumida (base anual)
+        
         kwh_rede_ano = c["energia_da_rede_kwh_mes"] / P["dias_mes"] * P["dias_ano"]
         evitado_ano = base["consumo_kwh_ano"] - kwh_rede_ano
         c["co2_evitado_kg_ano"] = round(evitado_ano * P["fator_emissao_kg_kwh"], 1)
@@ -96,18 +94,16 @@ def main():
 
     resultado = {"premissas": P, "cenarios": [base, alt_a, alt_b]}
 
-    # Exporta JSON para o dashboard do grupo consumir
+    
     with open("indicadores.json", "w", encoding="utf-8") as f:
         json.dump(resultado, f, ensure_ascii=False, indent=2)
 
-    # Impressão resumida
     for c in resultado["cenarios"]:
         print("\n==", c["cenario"])
         for k, v in c.items():
             if k != "cenario":
                 print(f"  {k}: {v}")
 
-    # Gráfico opcional (precisa do matplotlib)
     try:
         import matplotlib.pyplot as plt
         nomes = ["Base", "A (LED)", "B (LED+FV)"]
