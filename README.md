@@ -33,14 +33,29 @@ flowchart LR
     PROC --> DASH[Neighborhood Action Dashboard]
 ```
 
-## Indicadores
-Consumo (kWh/mês), economia (%), redução de custo (R$/mês),
-participação renovável (%), emissões evitadas (kg CO2e/ano).
-
 ## Como rodar
+
+Requisitos: Python 3. A biblioteca matplotlib é opcional e só serve para gerar o gráfico.
+
+```bash
+pip install matplotlib
+cd sers
 python calculo_indicadores.py
+```
+
+O script imprime os resultados e gera `indicadores.json` (usado pelo dashboard) e `grafico_consumo.png`.
 
 ## Referências
-(liste cada fonte: MCTI/SIRENE, ANEEL, CRESESB, cotações de preços etc.)
 
-**Contribuição de SERS:** pasta /sers
+- BRASIL. Ministério da Ciência, Tecnologia e Inovação (MCTI). SIRENE: fatores de emissão de CO₂ da geração de energia elétrica. Disponível em: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/dados-e-ferramentas/fatores-de-emissao. 
+- BRASIL. MCTI. Fator de emissão de CO₂ na geração de energia elétrica no Brasil em 2023 (0,0385 tCO₂/MWh). https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2024/02/fator-de-emissao-de-co2-na-geracao-de-energia-eletrica-no-brasil-em-2023-e-o-menor-em-12-anos.
+- AGÊNCIA INFRA. ANEEL aprova reajuste de 10,18% nas tarifas da Enel SP. 30 jun. https://agenciainfra.com/blog/?p=43652. 
+
+## Limitações
+
+- Os resultados são projeções condicionadas às premissas adotadas, e não resultados garantidos.
+- Número de luminárias, potências, tarifa, custos e horas de sol pleno são estimativas.
+- Na alternativa B, o balanço de 100% de energia renovável depende da compensação de créditos na rede, porque a geração é diurna e a iluminação é noturna. Baterias não foram consideradas.
+- Não foram considerados taxas e encargos da compensação, manutenção nem as emissões do ciclo de vida dos painéis.
+- Como a matriz elétrica brasileira já é pouco emissora, as emissões evitadas são pequenas em termos absolutos.
+- O dashboard usa dados estimados ou simulados, sem medição real.
