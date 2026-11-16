@@ -1,6 +1,6 @@
 # CitizenTech - Contribuição de SERS (Soluções em Energias Renováveis e Sustentáveis)
 
-**Global Solution 2026.2 | Ciência da Computação**
+**Global Solution 2026.2**
 
 ## Integrantes
 - Enzo Lozano – RM 574944 
