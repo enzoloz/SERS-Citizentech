@@ -21,16 +21,74 @@ E (kWh) = P (W) x t (h) / 1000
 ## Diagrama
 ```mermaid
 flowchart LR
-    SOL[Paineis solares 2,75 kWp] --> INV[Inversor]
-    INV --> QD[Quadro de distribuicao]
-    REDE[Rede eletrica - Enel SP] <--> QD
-    QD --> LED[20 luminarias LED]
-    SEN[Sensores de presenca e luminosidade] --> CTRL[Controlador de dimerizacao]
-    CTRL --> LED
-    MED[Medidor de energia consumida e gerada] --> GW[Gateway IoT]
-    SEN --> GW
-    GW --> PROC[Processamento: calculo de indicadores]
-    PROC --> DASH[Neighborhood Action Dashboard]
+
+    %% COLUNA 1 - FONTE DE ENERGIA
+    subgraph C1["Fonte de energia"]
+        direction TB
+        SOL["Painéis solares (2,75 kWp)"]
+        INV["Inversor"]
+        QD["Quadro de distribuição"]
+        REDE["Rede elétrica (Enel SP)"]
+
+        SOL -->|energia solar| INV
+        INV -->|energia solar| QD
+        REDE <-->|compra e créditos| QD
+    end
+
+    %% COLUNA 2 - CONSUMO
+    subgraph C2["Consumo"]
+        direction TB
+        LED["20 luminárias LED"]
+    end
+
+    %% COLUNA 3 - SENSORES E AUTOMAÇÃO
+    subgraph C3["Sensores e automação"]
+        direction TB
+        SENS["Sensores de presença e luminosidade"]
+        CTRL["Controlador de dimerização"]
+        MED["Medidor de energia (consumida e gerada)"]
+        GW["Gateway IoT"]
+
+        SENS --> CTRL
+        SENS -->|dados| GW
+        MED -->|consumo e geração| GW
+    end
+
+    %% COLUNA 4 - PROCESSAMENTO E DASHBOARD
+    subgraph C4["Processamento e dashboard"]
+        direction TB
+        PROC["Processamento: cálculo dos indicadores"]
+        DASH["Neighborhood Action Dashboard<br/><br/>Consumo (kWh/mês)<br/>Economia (%)<br/>Redução de custo (R$/mês)<br/>Energia renovável (%)<br/>Emissões evitadas (kg CO2e/ano)"]
+
+        PROC --> DASH
+    end
+
+    %% CONEXÕES ENTRE AS COLUNAS
+    QD -->|energia elétrica| LED
+    CTRL -->|luz 100% ou 50%| LED
+    GW -->|indicadores| PROC
+
+    %% ESTILIZAÇÃO
+    classDef solar fill:#D9F2D0,stroke:#39852B,color:#183D13,stroke-width:2px
+    classDef rede fill:#D6E9FF,stroke:#1765B0,color:#123B68,stroke-width:2px
+    classDef distribuicao fill:#E5E5E5,stroke:#777777,color:#222222,stroke-width:2px
+    classDef consumo fill:#FFE0B8,stroke:#E87800,color:#633000,stroke-width:2px
+    classDef automacao fill:#E9D5F5,stroke:#7935A5,color:#40145F,stroke-width:2px
+    classDef processamento fill:#465462,stroke:#303D49,color:#FFFFFF,stroke-width:2px
+    classDef dashboard fill:#087B9F,stroke:#075B78,color:#FFFFFF,stroke-width:3px
+
+    class SOL,INV solar
+    class REDE rede
+    class QD distribuicao
+    class LED consumo
+    class SENS,CTRL,MED,GW automacao
+    class PROC processamento
+    class DASH dashboard
+
+    %% CORES DAS CONEXÕES
+    linkStyle 0,1 stroke:#39852B,stroke-width:2px
+    linkStyle 2 stroke:#1765B0,stroke-width:2px
+
 ```
 
 ## Dados utilizados
